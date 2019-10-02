@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ClienteService } from 'src/services/cliente.service';
+import { Cliente } from 'src/model/cliente';
 
 @Component({
   selector: 'app-cliente-detalhe',
@@ -8,11 +10,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ClienteDetalhePage implements OnInit {
 
-  constructor(private actRoute : ActivatedRoute){
-   console.log(this.actRoute.snapshot.paramMap.get('id'));
+  id : string; // armazena o id enviado pelo paramMap
+  cliente : Cliente = new Cliente(); // armazena o Cliente do bd
+
+  constructor(private actRoute : ActivatedRoute,
+    private clienteServ : ClienteService){
+  // capturando o id
+   this.id = this.actRoute.snapshot.paramMap.get('id');
  }
 
   ngOnInit() {
+    //Executando a consulta por id
+    this.clienteServ.getIdCliente(this.id).subscribe(response=>{
+      this.cliente.setCliente(response);
+
+    })
   }
+
+
 
 }

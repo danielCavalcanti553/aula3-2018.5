@@ -23,11 +23,12 @@ export class ClientesPage implements OnInit {
     this.clienteServ.getClientes().subscribe(response=>{
        // dados do response para a variável cliente
       this.clientes = response;
+      console.log(response)
     })
   }
 
-  goPage(){
-    this.router.navigate(['/cliente-detalhe',{id : '3'}]);
+  goPage(idValue : string){
+    this.router.navigate(['/cliente-detalhe',{id : idValue}]);
     
   }
 
