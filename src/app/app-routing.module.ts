@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'clientes', loadChildren: './clientes/clientes.module#ClientesPageModule' },
   { path: 'cliente-detalhe', loadChildren: './cliente-detalhe/cliente-detalhe.module#ClienteDetalhePageModule' },
-  { path: 'filmes', loadChildren: './filmes/filmes.module#FilmesPageModule' }
+  { path: 'filmes', loadChildren: './filmes/filmes.module#FilmesPageModule' },
+  { path: 'cliente-cadastro', loadChildren: './cliente-cadastro/cliente-cadastro.module#ClienteCadastroPageModule' }
 ];
 
 @NgModule({

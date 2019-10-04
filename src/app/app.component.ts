@@ -25,6 +25,11 @@ export class AppComponent {
       title: 'Lista de Cliente',
       url: '/clientes',
       icon: 'contacts'
+    },
+    {
+      title: 'Novo Cliente',
+      url: '/cliente-cadastro',
+      icon: 'contact'
     }
   ];
 

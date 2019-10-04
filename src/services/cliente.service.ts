@@ -18,4 +18,18 @@ export class ClienteService{
    getIdCliente(id : string): Observable<Cliente[]>{
     return this.http.get<Cliente[]>(`${environment.api}/clientes/${id}`);
    }
+
+   insertCliente(obj : Cliente){
+    return this.http.post(
+      `${environment.api}/clientes`,obj,
+      {
+        observe: 'response',
+        responseType: 'text'
+      } 
+    );
+  }
+
+  deleteCliente(id : string){
+    return this.http.delete(`${environment.api}/clientes/${id}`);
+  }
 }
